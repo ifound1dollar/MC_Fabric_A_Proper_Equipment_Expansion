@@ -12,7 +12,7 @@ import net.dollar.apex.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +47,9 @@ public class ModMain implements ModInitializer {
 	 * Handle creation of all fuel registries, allowing items to be burned for fuel in furnaces and smokers.
 	 */
 	void handleFuelRegistries() {
-		FuelRegistry.INSTANCE.add(ModItems.MOLTEN_CORE, 30000);	//25 minutes
+		FuelRegistryEvents.BUILD.register((builder, context) -> {
+			builder.add(ModItems.MOLTEN_CORE, 30000);		//25 minutes
+		});
 	}
 
 	/**
