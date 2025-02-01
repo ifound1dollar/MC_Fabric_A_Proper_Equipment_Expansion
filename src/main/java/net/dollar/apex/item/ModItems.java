@@ -144,12 +144,12 @@ public class ModItems {
     public static final Item DIAMOND_BATTLEAXE = registerItem("diamond_battleaxe",
             new ModBattleaxeItem(ToolMaterials.DIAMOND, new Item.Settings()
                     .attributeModifiers(ModBattleaxeItem.createAttributeModifiers(
-                            ToolMaterials.DIAMOND, 5, -3.0f))
-                    .fireproof()));
+                            ToolMaterials.DIAMOND, 5, -3.0f))));
     public static final Item NETHERITE_BATTLEAXE = registerItem("netherite_battleaxe",
             new ModBattleaxeItem(ToolMaterials.NETHERITE, new Item.Settings()
                     .attributeModifiers(ModBattleaxeItem.createAttributeModifiers(
-                            ToolMaterials.NETHERITE, 5, -3.0f))));
+                            ToolMaterials.NETHERITE, 5, -3.0f))
+                    .fireproof()));
     public static final Item COBALT_STEEL_BATTLEAXE = registerItem("cobalt_steel_battleaxe",
             new ModCobaltSteelBattleaxeItem(ModToolMaterials.COBALT_STEEL,
                     5, -2.7f)); //Faster, Netherite = 5.0f, -3.0f
@@ -189,7 +189,8 @@ public class ModItems {
     public static final Item NETHERITE_PAXEL = registerItem("netherite_paxel",
             new ModPaxelItem(ToolMaterials.NETHERITE, new Item.Settings()
                     .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ToolMaterials.NETHERITE, 2.0f, -2.9f)))); //Rough average between Axe, Pickaxe, and Shovel stats
+                            ToolMaterials.NETHERITE, 2.0f, -2.9f))
+                    .fireproof())); //Rough average between Axe, Pickaxe, and Shovel stats
     public static final Item COBALT_STEEL_PAXEL = registerItem("cobalt_steel_paxel",
             new ModCobaltSteelPaxelItem(ModToolMaterials.COBALT_STEEL,
                     2.0f, -2.6f)); //Faster, Netherite = 2.0f, -2.9f
