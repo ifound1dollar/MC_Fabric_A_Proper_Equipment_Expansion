@@ -41,25 +41,12 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
 
     private int ticksSinceLastAttack = 0;
     private int auraCounterTicks = 60;
-    private final int textureID;
 
     public MysteriousSpecterEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-
-        //Set textureID to a value between 0-4, which is used to determine which texture to render.
-        textureID = world.random.nextInt(5);
     }
 
 
-
-    /**
-     * Gets the textureID field (in range of 0-4), which will determine which texture to load for this
-     *  Entity instance.
-     * @return The textureID field value
-     */
-    public int getTextureID() {
-        return textureID;
-    }
 
     /**
      * Register mob goals (AI).
@@ -81,12 +68,12 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      */
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 120)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 15.0)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0.5)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30f);
+                .add(EntityAttributes.MAX_HEALTH, 120)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.25)
+                .add(EntityAttributes.KNOCKBACK_RESISTANCE, 1.0)
+                .add(EntityAttributes.ATTACK_DAMAGE, 15.0)
+                .add(EntityAttributes.ATTACK_KNOCKBACK, 0.5)
+                .add(EntityAttributes.FOLLOW_RANGE, 30f);
     }
 
     /**
@@ -174,12 +161,12 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      * @return Whether the attack was successfully performed
      */
     @Override
-    public boolean tryAttack(Entity target) {
+    public boolean tryAttack(ServerWorld world, Entity target) {
         //Verify it has been at least 20 ticks (1 second) since last attack.
         if (ticksSinceLastAttack < 20) { return false; }
 
         //Actual attack operation done here.
-        boolean success = super.tryAttack(target);    //Performs all basic attack operations.
+        boolean success = super.tryAttack(world, target);    //Performs all basic attack operations.
 
         //If damaging target was successful.
         if (success) {
@@ -372,11 +359,11 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      * @param causedByPlayer Whether this Entity was killed by a Player
      */
     @Override
-    protected void dropLoot(DamageSource damageSource, boolean causedByPlayer) {
+    protected void dropLoot(ServerWorld world, DamageSource damageSource, boolean causedByPlayer) {
         if (!causedByPlayer) return;
 
         //Below is copied almost entirely from WitherEntity.
-        ItemEntity itemEntity = this.dropItem(ModItems.HANDFUL_OF_STARDUST);
+        ItemEntity itemEntity = this.dropItem(world, ModItems.HANDFUL_OF_STARDUST);
         if (itemEntity != null) {
             itemEntity.setCovetedItem();    //This is extended lifetime before despawn
         }
@@ -391,7 +378,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
                     heldItem.getItem() == ModItems.INFUSED_GEMSTONE_HOE ||
                     heldItem.getItem() == ModItems.TUNGSTEN_CARBIDE_HOE) {
                 //Drop Obsidian Dust collector item and give it a long despawn delay.
-                ItemEntity collectorItem = this.dropItem(ModItems.TROPHY_OMINOUS_LETTER);
+                ItemEntity collectorItem = this.dropItem(world, ModItems.TROPHY_OMINOUS_LETTER);
                 if (collectorItem != null) {
                     collectorItem.setCovetedItem();
                 }
@@ -405,7 +392,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      * @return Amount of XP to drop
      */
     @Override
-    public int getXpToDrop() {
+    public int getXpToDrop(ServerWorld world) {
         return 50;
     }
 

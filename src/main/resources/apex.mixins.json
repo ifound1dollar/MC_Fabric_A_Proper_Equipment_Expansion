@@ -3,14 +3,12 @@
   "package": "net.dollar.apex.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "MixinLivingEntity",
-    "MixinPiglinBrain"
+    "MixinLivingEntity"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "MixinHeldItemRenderer",
-    "MixinPlayerEntityRenderer"
+    "MixinHeldItemRenderer"
   ]
 }

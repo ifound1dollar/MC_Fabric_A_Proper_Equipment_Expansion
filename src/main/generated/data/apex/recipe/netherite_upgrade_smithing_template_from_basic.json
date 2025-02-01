@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "d": {
-      "item": "apex:basic_upgrade_template"
-    },
-    "i": {
-      "tag": "c:netherracks"
-    },
-    "n": {
-      "tag": "c:diamonds"
-    }
+    "d": "apex:basic_upgrade_template",
+    "i": "#c:netherracks",
+    "n": "#c:diamonds"
   },
   "pattern": [
     " d ",

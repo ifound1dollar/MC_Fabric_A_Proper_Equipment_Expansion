@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "d": {
-      "tag": "c:tin_ingots"
-    },
-    "i": {
-      "tag": "c:chests"
-    }
+    "d": "#c:tin_ingots",
+    "i": "#c:chests"
   },
   "pattern": [
     "d d",

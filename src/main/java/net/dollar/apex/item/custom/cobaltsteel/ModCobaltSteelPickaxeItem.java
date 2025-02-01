@@ -1,22 +1,21 @@
 package net.dollar.apex.item.custom.cobaltsteel;
 
-import net.dollar.apex.util.ModToolMaterials;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 
 import java.util.List;
 
 public class ModCobaltSteelPickaxeItem extends PickaxeItem {
-    public ModCobaltSteelPickaxeItem(ToolMaterial material, float attackDamage, float attackSpeed) {
-        super(material, new Item.Settings()
-                .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                        ModToolMaterials.COBALT_STEEL, attackDamage, attackSpeed))
-                .fireproof());
+    public ModCobaltSteelPickaxeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
     }
 
 

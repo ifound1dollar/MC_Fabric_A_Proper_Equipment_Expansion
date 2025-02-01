@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "d": {
-      "tag": "c:gold_ingots"
-    },
-    "i": {
-      "item": "apex:bronze_helmet"
-    }
+    "d": "#c:gold_ingots",
+    "i": "apex:bronze_helmet"
   },
   "pattern": [
     "ddd",

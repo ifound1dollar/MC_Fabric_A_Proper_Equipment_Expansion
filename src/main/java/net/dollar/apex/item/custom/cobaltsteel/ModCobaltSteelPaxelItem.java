@@ -1,24 +1,21 @@
 package net.dollar.apex.item.custom.cobaltsteel;
 
 import net.dollar.apex.item.custom.ModPaxelItem;
-import net.dollar.apex.util.ModToolMaterials;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 
 import java.util.List;
 
 public class ModCobaltSteelPaxelItem extends ModPaxelItem {
-    public ModCobaltSteelPaxelItem(ToolMaterial material, float attackDamage, float attackSpeed) {
-        super(material, attackDamage, attackSpeed, new Item.Settings()
-                .fireproof());
+    public ModCobaltSteelPaxelItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
     }
 
     /**

@@ -11,24 +11,30 @@ import net.minecraft.util.Identifier;
 
 @Environment(value= EnvType.CLIENT)
 public class MysteriousSpecterRenderer
-        extends BipedEntityRenderer<MysteriousSpecterEntity, MysteriousSpecterModel<MysteriousSpecterEntity>> {
+        extends BipedEntityRenderer<MysteriousSpecterEntity, MysteriousSpecterRenderState, MysteriousSpecterModel<MysteriousSpecterRenderState>> {
     private static final String TEXTURE_BASE = "textures/entities/mysterious_specter";
 
     public MysteriousSpecterRenderer(EntityRendererFactory.Context context) {
-        super(context, new MysteriousSpecterModel<>(context.getPart(ModModelLayers.MYSTERIOUS_SPECTER)), 0.6f);
+        super(context, new MysteriousSpecterModel<>(context.getPart(ModModelLayers.MYSTERIOUS_SPECTER)),
+                0.6f);
     }
 
 
 
     @Override
-    protected void scale(MysteriousSpecterEntity entity, MatrixStack matrices, float amount) {
+    public MysteriousSpecterRenderState createRenderState() {
+        return new MysteriousSpecterRenderState();  // Assigns random texture string here, used in getTexture()
+    }
+
+    @Override
+    protected void scale(MysteriousSpecterRenderState state, MatrixStack matrices) {
         matrices.scale(0.9375f, 0.9375f, 0.9375f);
     }
 
     @Override
-    public Identifier getTexture(MysteriousSpecterEntity entity) {
+    public Identifier getTexture(MysteriousSpecterRenderState renderState) {
         //Generate and return a new identifier using the TEXTURE_BASE string appended with the texture
-        //  ID from the Entity instance (plus the .png extension).
-        return Identifier.of(ModMain.MOD_ID, TEXTURE_BASE + entity.getTextureID() + ".png");
+        //  ID from the RenderState instance (plus the .png extension).
+        return Identifier.of(ModMain.MOD_ID, TEXTURE_BASE + renderState.getTextureID() + ".png");
     }
 }

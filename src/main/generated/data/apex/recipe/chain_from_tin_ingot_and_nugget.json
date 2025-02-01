@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "d": {
-      "item": "apex:tin_nugget"
-    },
-    "i": {
-      "tag": "c:tin_ingots"
-    }
+    "d": "apex:tin_nugget",
+    "i": "#c:tin_ingots"
   },
   "pattern": [
     "d",

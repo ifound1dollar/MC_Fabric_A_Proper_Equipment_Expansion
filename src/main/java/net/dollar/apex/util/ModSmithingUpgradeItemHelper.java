@@ -1,7 +1,10 @@
 package net.dollar.apex.util;
 
+import net.dollar.apex.ModMain;
 import net.minecraft.item.Item;
 import net.minecraft.item.SmithingTemplateItem;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -70,7 +73,9 @@ public class ModSmithingUpgradeItemHelper {
     public static SmithingTemplateItem createCobaltUpgradeTemplate() {
         return new SmithingTemplateItem(COBALT_UPGRADE_APPLIES_TO, COBALT_UPGRADE_INGREDIENTS,
                 COBALT_UPGRADE_BASE_SLOT_DESCRIPTION, COBALT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Settings());
+                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Settings()
+                .registryKey(RegistryKey.of(RegistryKeys.ITEM,
+                        Identifier.of(ModMain.MOD_ID, "cobalt_upgrade_smithing_template"))));
     }
 
     /**
@@ -81,7 +86,9 @@ public class ModSmithingUpgradeItemHelper {
     public static SmithingTemplateItem createInfusionUpgradeTemplate() {
         return new SmithingTemplateItem(INFUSION_UPGRADE_APPLIES_TO, INFUSION_UPGRADE_INGREDIENTS,
                 INFUSION_UPGRADE_BASE_SLOT_DESCRIPTION, INFUSION_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(false), new Item.Settings());
+                createUpgradeIconList(), createUpgradeMaterialList(false), new Item.Settings()
+                .registryKey(RegistryKey.of(RegistryKeys.ITEM,
+                Identifier.of(ModMain.MOD_ID, "infusion_upgrade_smithing_template"))));
     }
 
     /**
@@ -92,7 +99,9 @@ public class ModSmithingUpgradeItemHelper {
     public static SmithingTemplateItem createCarbideUpgradeTemplate() {
         return new SmithingTemplateItem(CARBIDE_UPGRADE_APPLIES_TO, CARBIDE_UPGRADE_INGREDIENTS,
                 CARBIDE_UPGRADE_BASE_SLOT_DESCRIPTION, CARBIDE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Settings());
+                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Settings()
+                .registryKey(RegistryKey.of(RegistryKeys.ITEM,
+                        Identifier.of(ModMain.MOD_ID, "carbide_upgrade_smithing_template"))));
     }
 
 

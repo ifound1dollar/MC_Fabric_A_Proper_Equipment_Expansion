@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "d": {
-      "item": "apex:basic_upgrade_template"
-    },
-    "i": {
-      "tag": "c:deepslates"
-    },
-    "n": {
-      "tag": "c:diamonds"
-    }
+    "d": "apex:basic_upgrade_template",
+    "i": "#c:deepslates",
+    "n": "#c:diamonds"
   },
   "pattern": [
     " d ",

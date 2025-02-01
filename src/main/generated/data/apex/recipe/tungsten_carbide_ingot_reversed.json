@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "d": {
-      "tag": "c:tungsten_ingots"
-    },
-    "i": {
-      "item": "minecraft:coal"
-    },
-    "n": {
-      "item": "apex:molten_core"
-    }
+    "d": "#c:tungsten_ingots",
+    "i": "minecraft:coal",
+    "n": "apex:molten_core"
   },
   "pattern": [
     "idi",

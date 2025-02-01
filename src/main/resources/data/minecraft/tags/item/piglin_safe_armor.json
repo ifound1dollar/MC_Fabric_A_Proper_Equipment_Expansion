@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "apex:gilded_bronze_helmet",
+    "apex:gilded_bronze_chestplate",
+    "apex:gilded_bronze_leggings",
+    "apex:gilded_bronze_boots"
+  ]
+}

@@ -3,38 +3,31 @@
  */
 package net.dollar.apex.entity.client;
 
-import net.dollar.apex.entity.custom.ObsidianGolemEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.model.Dilation;
-import net.minecraft.client.model.ModelData;
-import net.minecraft.client.model.ModelPart;
-import net.minecraft.client.model.ModelPartBuilder;
-import net.minecraft.client.model.ModelPartData;
-import net.minecraft.client.model.ModelTransform;
-import net.minecraft.client.model.TexturedModelData;
+import net.minecraft.client.model.*;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(value=EnvType.CLIENT)
-public class ObsidianGolemModel<T extends ObsidianGolemEntity>
-        extends SinglePartEntityModel<T> {
-    private final ModelPart root;
+public class ObsidianGolemModel extends EntityModel<ObsidianGolemRenderState> {
     private final ModelPart head;
     private final ModelPart rightArm;
     private final ModelPart leftArm;
     private final ModelPart rightLeg;
     private final ModelPart leftLeg;
 
-    public ObsidianGolemModel(ModelPart root) {
-        this.root = root;
-        this.head = root.getChild(EntityModelPartNames.HEAD);
-        this.rightArm = root.getChild(EntityModelPartNames.RIGHT_ARM);
-        this.leftArm = root.getChild(EntityModelPartNames.LEFT_ARM);
-        this.rightLeg = root.getChild(EntityModelPartNames.RIGHT_LEG);
-        this.leftLeg = root.getChild(EntityModelPartNames.LEFT_LEG);
+    public ObsidianGolemModel(ModelPart modelPart) {
+        super(modelPart);
+        this.head = modelPart.getChild("head");
+        this.rightArm = modelPart.getChild("right_arm");
+        this.leftArm = modelPart.getChild("left_arm");
+        this.rightLeg = modelPart.getChild("right_leg");
+        this.leftLeg = modelPart.getChild("left_leg");
     }
+
+
 
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
@@ -48,28 +41,30 @@ public class ObsidianGolemModel<T extends ObsidianGolemEntity>
         return TexturedModelData.of(modelData, 128, 128);
     }
 
-    @Override
-    public ModelPart getPart() {
-        return this.root;
-    }
+    public void setAngles(ObsidianGolemRenderState renderState) {
+        super.setAngles(renderState);
+        float f = renderState.attackTicksLeft;
+        float g = renderState.limbAmplitudeMultiplier;
+        float h = renderState.limbFrequency;
+        if (f > 0.0F) {
+            this.rightArm.pitch = -2.0F + 1.5F * MathHelper.wrap(f, 10.0F);
+            this.leftArm.pitch = -2.0F + 1.5F * MathHelper.wrap(f, 10.0F);
+        } else {
+            this.rightArm.pitch = (-0.2F + 1.5F * MathHelper.wrap(h, 13.0F)) * g;
+            this.leftArm.pitch = (-0.2F - 1.5F * MathHelper.wrap(h, 13.0F)) * g;
 
-    @Override
-    public void setAngles(T obsidianGolemEntity, float f, float g, float h, float i, float j) {
-        this.head.yaw = i * ((float)Math.PI / 180);
-        this.head.pitch = j * ((float)Math.PI / 180);
-        this.rightLeg.pitch = -1.5f * MathHelper.wrap(f, 13.0f) * g;
-        this.leftLeg.pitch = 1.5f * MathHelper.wrap(f, 13.0f) * g;
-        this.rightLeg.yaw = 0.0f;
-        this.leftLeg.yaw = 0.0f;
-    }
-
-    @Override
-    public void animateModel(T obsidianGolemEntity, float f, float g, float h) {
-        int i = (obsidianGolemEntity).getAttackTicksLeft();
-        if (i > 0) {
-            this.rightArm.pitch = -2.0f + 1.5f * MathHelper.wrap((float)i - h, 10.0f);
-            this.leftArm.pitch = -2.0f + 1.5f * MathHelper.wrap((float)i - h, 10.0f);
         }
+
+        this.head.yaw = renderState.yawDegrees * 0.017453292F;
+        this.head.pitch = renderState.pitch * 0.017453292F;
+        this.rightLeg.pitch = -1.5F * MathHelper.wrap(h, 13.0F) * g;
+        this.leftLeg.pitch = 1.5F * MathHelper.wrap(h, 13.0F) * g;
+        this.rightLeg.yaw = 0.0F;
+        this.leftLeg.yaw = 0.0F;
     }
+
+//    public ModelPart getRightArm() {
+//        return this.rightArm;
+//    }
 }
 

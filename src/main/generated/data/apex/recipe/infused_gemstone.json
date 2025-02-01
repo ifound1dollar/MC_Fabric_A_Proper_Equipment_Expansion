@@ -2,24 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "tag": "c:amethyst"
-    },
-    {
-      "tag": "c:diamonds"
-    },
-    {
-      "tag": "c:emeralds"
-    },
-    {
-      "tag": "c:rubies"
-    },
-    {
-      "tag": "c:sapphires"
-    },
-    {
-      "item": "apex:handful_of_stardust"
-    }
+    "#c:amethyst",
+    "#c:diamonds",
+    "#c:emeralds",
+    "#c:rubies",
+    "#c:sapphires",
+    "apex:handful_of_stardust"
   ],
   "result": {
     "count": 1,

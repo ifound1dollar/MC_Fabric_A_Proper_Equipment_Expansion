@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "d": {
-      "item": "apex:tin_nugget"
-    },
-    "i": {
-      "item": "minecraft:torch"
-    }
+    "d": "apex:tin_nugget",
+    "i": "minecraft:torch"
   },
   "pattern": [
     "ddd",

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "tag": "c:tin_ingots"
-    },
-    {
-      "item": "minecraft:flint"
-    }
+    "#c:tin_ingots",
+    "minecraft:flint"
   ],
   "result": {
     "count": 1,

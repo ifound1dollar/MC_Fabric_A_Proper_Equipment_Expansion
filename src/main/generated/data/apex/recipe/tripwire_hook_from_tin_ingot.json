@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "d": {
-      "tag": "c:tin_ingots"
-    },
-    "i": {
-      "tag": "c:wooden_rods"
-    },
-    "n": {
-      "tag": "minecraft:planks"
-    }
+    "d": "#c:tin_ingots",
+    "i": "#c:wooden_rods",
+    "n": "#minecraft:planks"
   },
   "pattern": [
     "d",
