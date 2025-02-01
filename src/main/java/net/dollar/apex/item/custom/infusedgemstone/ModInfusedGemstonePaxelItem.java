@@ -16,9 +16,7 @@ import java.util.List;
 
 public class ModInfusedGemstonePaxelItem extends ModPaxelItem implements IInfusedGemstoneItem {
     public ModInfusedGemstonePaxelItem(ToolMaterial material, float attackDamage, float attackSpeed) {
-        super(material, new Item.Settings()
-                .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                        ModToolMaterials.INFUSED_GEMSTONE, attackDamage, attackSpeed))
+        super(material, attackDamage, attackSpeed, new Item.Settings()
                 .fireproof());
     }
 

@@ -14,9 +14,7 @@ import java.util.List;
 
 public class ModCobaltSteelBattleaxeItem extends ModBattleaxeItem {
     public ModCobaltSteelBattleaxeItem(ToolMaterial material, int attackDamage, float attackSpeed) {
-        super(material, new Item.Settings()
-                .attributeModifiers(ModBattleaxeItem.createAttributeModifiers(
-                        ModToolMaterials.COBALT_STEEL, attackDamage, attackSpeed))
+        super(material, attackDamage, attackSpeed, new Item.Settings()
                 .fireproof());
     }
 

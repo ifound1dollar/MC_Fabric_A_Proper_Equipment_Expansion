@@ -33,20 +33,20 @@ public class ModCobaltSteelBowItem extends BowItem {
      * @param remainingUseTicks Remaining use ticks
      */
     @Override
-    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+    public boolean onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         if (!(user instanceof PlayerEntity playerEntity)) {
-            return;
+            return false;
         }
 
         ItemStack itemStack = playerEntity.getProjectileType(stack);
         if (itemStack.isEmpty()) {
-            return;
+            return false;
         }
 
         int i = this.getMaxUseTime(stack, user) - remainingUseTicks;
         float f = BowItem.getPullProgress(i);
         if ((double)f < 0.1) {
-            return;
+            return false;
         }
 
         List<ItemStack> list = BowItem.load(stack, itemStack, playerEntity);
@@ -58,6 +58,7 @@ public class ModCobaltSteelBowItem extends BowItem {
 
         world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0f, 1.0f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + f * 0.5f);
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+        return true;
     }
 
     /**

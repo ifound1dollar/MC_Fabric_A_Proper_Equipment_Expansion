@@ -43,11 +43,18 @@ public class ModTags {
     public static class Items {
         //region apex tags
         public static final TagKey<Item> MOD_TOOLS_COBALT_STEEL = TagKey.of(RegistryKeys.ITEM,
-                Identifier.of(ModMain.MOD_ID, "tools_cobalt_steel"));
+                Identifier.of(ModMain.MOD_ID, "equipment_cobalt_steel"));
         public static final TagKey<Item> MOD_TOOLS_INFUSED_GEMSTONE = TagKey.of(RegistryKeys.ITEM,
-                Identifier.of(ModMain.MOD_ID, "tools_infused_gemstone"));
+                Identifier.of(ModMain.MOD_ID, "equipment_infused_gemstone"));
         public static final TagKey<Item> MOD_TOOLS_TUNGSTEN_CARBIDE = TagKey.of(RegistryKeys.ITEM,
-                Identifier.of(ModMain.MOD_ID, "tools_tungsten_carbide"));
+                Identifier.of(ModMain.MOD_ID, "equipment_tungsten_carbide"));
+
+        public static final TagKey<Item> MOD_REPAIRS_COBALT_STEEL_EQUIPMENT = TagKey.of(RegistryKeys.ITEM,
+                Identifier.of(ModMain.MOD_ID, "repairs_cobalt_steel_equipment"));
+        public static final TagKey<Item> MOD_REPAIRS_INFUSED_GEMSTONE_EQUIPMENT = TagKey.of(RegistryKeys.ITEM,
+                Identifier.of(ModMain.MOD_ID, "repairs_cobalt_steel_equipment"));
+        public static final TagKey<Item> MOD_REPAIRS_TUNGSTEN_CARBIDE_EQUIPMENT = TagKey.of(RegistryKeys.ITEM,
+                Identifier.of(ModMain.MOD_ID, "repairs_cobalt_steel_equipment"));
         //endregion
 
         //region common tags

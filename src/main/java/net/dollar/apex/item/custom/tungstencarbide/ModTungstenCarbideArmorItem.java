@@ -3,6 +3,8 @@ package net.dollar.apex.item.custom.tungstencarbide;
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
 import net.dollar.apex.util.ModUtils;
+import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -10,7 +12,6 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
@@ -18,7 +19,7 @@ import net.minecraft.text.Text;
 import java.util.List;
 
 public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEffectArmor {
-    public ModTungstenCarbideArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
+    public ModTungstenCarbideArmorItem(ArmorMaterial material, EquipmentType type, Settings settings) {
         super(material, type, settings);
     }
 

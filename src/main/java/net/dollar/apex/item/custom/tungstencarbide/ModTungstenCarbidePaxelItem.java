@@ -15,9 +15,7 @@ import java.util.List;
 
 public class ModTungstenCarbidePaxelItem extends ModPaxelItem {
     public ModTungstenCarbidePaxelItem(ToolMaterial material, float attackDamage, float attackSpeed) {
-        super(material, new Item.Settings()
-                .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                        ModToolMaterials.TUNGSTEN_CARBIDE, attackDamage, attackSpeed))
+        super(material, attackDamage, attackSpeed, new Item.Settings()
                 .fireproof());
     }
 

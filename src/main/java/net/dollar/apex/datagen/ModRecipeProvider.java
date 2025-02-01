@@ -16,6 +16,8 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -146,7 +148,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 //region NUGGETS (cannot use compacting recipes helper because duplicate ingot recipe names)
                 createShapeless(RecipeCategory.MISC, ModItems.TIN_NUGGET, 9)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
                         .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "tin_nugget_from_ingot")));
@@ -156,8 +158,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "tin_ingot_from_nugget")));
 
+                //RegistryEntryList.of(registries, ModTags.Items.COMMON_TUNGSTEN_INGOTS);
                 createShapeless(RecipeCategory.MISC, ModItems.TUNGSTEN_NUGGET, 9)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_TUNGSTEN_INGOTS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_TUNGSTEN_INGOTS), 1)
                         .criterion("has_tungsten_ingot", conditionsFromTag(ModTags.Items.COMMON_TUNGSTEN_INGOTS))
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "tungsten_nugget_from_ingot")));
@@ -168,7 +171,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "tungsten_ingot_from_nugget")));
 
                 createShapeless(RecipeCategory.MISC, ModItems.BRONZE_NUGGET, 9)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_BRONZE_INGOTS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_BRONZE_INGOTS), 1)
                         .criterion("has_bronze_ingot", conditionsFromTag(ModTags.Items.COMMON_BRONZE_INGOTS))
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "bronze_nugget_from_ingot")));
@@ -179,7 +182,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "bronze_ingot_from_nugget")));
 
                 createShapeless(RecipeCategory.MISC, ModItems.STEEL_NUGGET, 9)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_STEEL_INGOTS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_STEEL_INGOTS), 1)
                         .criterion("has_steel_ingot", conditionsFromTag(ModTags.Items.COMMON_STEEL_INGOTS))
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "steel_nugget_from_ingot")));
@@ -193,7 +196,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 //region PHOSPHATE POWDER RECIPES
                 createShapeless(RecipeCategory.MISC, Items.GUNPOWDER, 2)
                         .input(Ingredient.ofItems(ModItems.PHOSPHATE_POWDER), 1)
-                        .input(Ingredient.fromTag(ItemTags.COALS), 1)
+                        .input(ingredientFromTag(ItemTags.COALS), 1)
                         .criterion("has_phosphate_powder", conditionsFromItem(ModItems.PHOSPHATE_POWDER))
                         .criterion("has_coal", conditionsFromTag(ItemTags.COALS))
                         .offerTo(exporter, RegistryKey.of(
@@ -260,7 +263,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "hopper_from_tin_ingot")));
                 createShapeless(RecipeCategory.MISC, Items.FLINT_AND_STEEL, 1)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
                         .input(Ingredient.ofItems(Items.FLINT), 1)
                         .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
                         .offerTo(exporter, RegistryKey.of(
@@ -296,25 +299,25 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 //region COMPOUNDS AND ENDGAME INGREDIENT ITEMS (shapeless)
                 createShapeless(RecipeCategory.MISC, ModItems.BRONZE_COMPOUND, 3)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_COPPER_INGOTS), 3)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_COPPER_INGOTS), 3)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
                         .criterion("has_copper_ingot", conditionsFromTag(ModTags.Items.COMMON_COPPER_INGOTS))
                         .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.BRONZE_COMPOUND))));
                 createShapeless(RecipeCategory.MISC, ModItems.STEEL_COMPOUND, 1)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_IRON_INGOTS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_IRON_INGOTS), 1)
                         .input(Items.COAL, 1)
                         .criterion("has_iron_ingot", conditionsFromTag(ModTags.Items.COMMON_IRON_INGOTS))
                         .criterion("has_coal", conditionsFromItem(Items.COAL))
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.STEEL_COMPOUND))));
                 createShapeless(RecipeCategory.MISC, ModItems.INFUSED_GEMSTONE, 1)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_AMETHYST), 1)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_DIAMONDS), 1)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_EMERALDS), 1)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_RUBIES), 1)
-                        .input(Ingredient.fromTag(ModTags.Items.COMMON_SAPPHIRES), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_AMETHYST), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_DIAMONDS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_EMERALDS), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_RUBIES), 1)
+                        .input(ingredientFromTag(ModTags.Items.COMMON_SAPPHIRES), 1)
                         .input(ModItems.HANDFUL_OF_STARDUST, 1)
                         .criterion("has_amethyst_shard", conditionsFromTag(ModTags.Items.COMMON_AMETHYST))
                         .criterion("has_diamond", conditionsFromTag(ModTags.Items.COMMON_DIAMONDS))

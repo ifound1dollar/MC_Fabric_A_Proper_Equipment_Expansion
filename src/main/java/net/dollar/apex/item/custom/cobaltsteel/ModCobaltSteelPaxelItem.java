@@ -17,9 +17,7 @@ import java.util.List;
 
 public class ModCobaltSteelPaxelItem extends ModPaxelItem {
     public ModCobaltSteelPaxelItem(ToolMaterial material, float attackDamage, float attackSpeed) {
-        super(material, new Item.Settings()
-                .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                        ModToolMaterials.COBALT_STEEL, attackDamage, attackSpeed))
+        super(material, attackDamage, attackSpeed, new Item.Settings()
                 .fireproof());
     }
 

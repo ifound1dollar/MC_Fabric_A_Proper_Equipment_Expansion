@@ -1,5 +1,6 @@
 package net.dollar.apex.util;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class ModSmithingUpgradeItemHelper {
     //region COBALT-STEEL Texts
-    private static final Text COBALT_UPGRADE = Text.literal("Cobalt-Steel Upgrade").formatted(Formatting.GRAY);
+    //private static final Text COBALT_UPGRADE = Text.literal("Cobalt-Steel Upgrade").formatted(Formatting.GRAY);
     private static final Text COBALT_UPGRADE_APPLIES_TO = Text.literal("Diamond Equipment").formatted(Formatting.BLUE);
     private static final Text COBALT_UPGRADE_INGREDIENTS = Text.literal("Cobalt-Steel Ingot").formatted(Formatting.BLUE);
     private static final Text COBALT_UPGRADE_BASE_SLOT_DESCRIPTION = Text.literal(
@@ -23,7 +24,7 @@ public class ModSmithingUpgradeItemHelper {
     //endregion
 
     //region INFUSED DIAMOND Texts
-    private static final Text INFUSION_UPGRADE = Text.literal("Infused Gemstone Upgrade").formatted(Formatting.GRAY);
+    //private static final Text INFUSION_UPGRADE = Text.literal("Infused Gemstone Upgrade").formatted(Formatting.GRAY);
     private static final Text INFUSION_UPGRADE_APPLIES_TO = Text.literal("Diamond Equipment").formatted(Formatting.BLUE);
     private static final Text INFUSION_UPGRADE_INGREDIENTS = Text.literal("Infused Gemstone").formatted(Formatting.BLUE);
     private static final Text INFUSION_UPGRADE_BASE_SLOT_DESCRIPTION = Text.literal(
@@ -33,7 +34,7 @@ public class ModSmithingUpgradeItemHelper {
     //endregion
 
     //region TUNGSTEN-CARBIDE Texts
-    private static final Text CARBIDE_UPGRADE = Text.literal("Tungsten-Carbide Upgrade").formatted(Formatting.GRAY);
+    //private static final Text CARBIDE_UPGRADE = Text.literal("Tungsten-Carbide Upgrade").formatted(Formatting.GRAY);
     private static final Text CARBIDE_UPGRADE_APPLIES_TO = Text.literal("Diamond Equipment").formatted(Formatting.BLUE);
     private static final Text CARBIDE_UPGRADE_INGREDIENTS = Text.literal("Tungsten-Carbide Ingot").formatted(Formatting.BLUE);
     private static final Text CARBIDE_UPGRADE_BASE_SLOT_DESCRIPTION = Text.literal(
@@ -68,8 +69,8 @@ public class ModSmithingUpgradeItemHelper {
      */
     public static SmithingTemplateItem createCobaltUpgradeTemplate() {
         return new SmithingTemplateItem(COBALT_UPGRADE_APPLIES_TO, COBALT_UPGRADE_INGREDIENTS,
-                COBALT_UPGRADE, COBALT_UPGRADE_BASE_SLOT_DESCRIPTION, COBALT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(true));
+                COBALT_UPGRADE_BASE_SLOT_DESCRIPTION, COBALT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Settings());
     }
 
     /**
@@ -79,8 +80,8 @@ public class ModSmithingUpgradeItemHelper {
      */
     public static SmithingTemplateItem createInfusionUpgradeTemplate() {
         return new SmithingTemplateItem(INFUSION_UPGRADE_APPLIES_TO, INFUSION_UPGRADE_INGREDIENTS,
-                INFUSION_UPGRADE, INFUSION_UPGRADE_BASE_SLOT_DESCRIPTION, INFUSION_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(false));
+                INFUSION_UPGRADE_BASE_SLOT_DESCRIPTION, INFUSION_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createUpgradeIconList(), createUpgradeMaterialList(false), new Item.Settings());
     }
 
     /**
@@ -90,8 +91,8 @@ public class ModSmithingUpgradeItemHelper {
      */
     public static SmithingTemplateItem createCarbideUpgradeTemplate() {
         return new SmithingTemplateItem(CARBIDE_UPGRADE_APPLIES_TO, CARBIDE_UPGRADE_INGREDIENTS,
-                CARBIDE_UPGRADE, CARBIDE_UPGRADE_BASE_SLOT_DESCRIPTION, CARBIDE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(true));
+                CARBIDE_UPGRADE_BASE_SLOT_DESCRIPTION, CARBIDE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Settings());
     }
 
 

@@ -15,9 +15,7 @@ import java.util.List;
 
 public class ModInfusedGemstoneBattleaxeItem extends ModBattleaxeItem implements IInfusedGemstoneItem {
     public ModInfusedGemstoneBattleaxeItem(ToolMaterial material, int attackDamage, float attackSpeed) {
-        super(material, new Item.Settings()
-                .attributeModifiers(ModBattleaxeItem.createAttributeModifiers(
-                        ModToolMaterials.INFUSED_GEMSTONE, attackDamage, attackSpeed))
+        super(material, attackDamage, attackSpeed, new Item.Settings()
                 .fireproof());
     }
 

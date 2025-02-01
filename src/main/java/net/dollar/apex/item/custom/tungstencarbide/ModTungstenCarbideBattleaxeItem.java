@@ -14,9 +14,7 @@ import java.util.List;
 
 public class ModTungstenCarbideBattleaxeItem extends ModBattleaxeItem {
     public ModTungstenCarbideBattleaxeItem(ToolMaterial material, int attackDamage, float attackSpeed) {
-        super(material, new Item.Settings()
-                .attributeModifiers(ModBattleaxeItem.createAttributeModifiers(
-                        ModToolMaterials.TUNGSTEN_CARBIDE, attackDamage, attackSpeed))
+        super(material, attackDamage, attackSpeed, new Item.Settings()
                 .fireproof());
     }
 

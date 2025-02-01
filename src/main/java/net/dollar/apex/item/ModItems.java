@@ -16,6 +16,7 @@ import net.dollar.apex.util.ModArmorMaterials;
 import net.dollar.apex.util.ModSmithingUpgradeItemHelper;
 import net.dollar.apex.util.ModToolMaterials;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -122,13 +123,11 @@ public class ModItems {
 
     //region Axes
     public static final Item BRONZE_AXE = registerItem("bronze_axe",
-            new AxeItem(ModToolMaterials.BRONZE, new Item.Settings()
-                    .attributeModifiers(AxeItem.createAttributeModifiers(
-                            ModToolMaterials.BRONZE, 6.0f, -3.1f))));
+            new AxeItem(ModToolMaterials.BRONZE, 6.0f, -3.1f,
+                    new Item.Settings()));
     public static final Item GILDED_BRONZE_AXE = registerItem("gilded_bronze_axe",
-            new AxeItem(ModToolMaterials.GILDED_BRONZE, new Item.Settings()
-                    .attributeModifiers(AxeItem.createAttributeModifiers(
-                            ModToolMaterials.GILDED_BRONZE, 6.0f, -2.9f))));
+            new AxeItem(ModToolMaterials.GILDED_BRONZE, 6.0f, -2.9f,
+                    new Item.Settings()));
     public static final Item COBALT_STEEL_AXE = registerItem("cobalt_steel_axe",
             new ModCobaltSteelAxeItem(ModToolMaterials.COBALT_STEEL,
                     5.0f, -2.7f)); //Very fast, Netherite = 5.0f, -3.0f
@@ -142,14 +141,12 @@ public class ModItems {
 
     //region Battleaxes
     public static final Item DIAMOND_BATTLEAXE = registerItem("diamond_battleaxe",
-            new ModBattleaxeItem(ToolMaterials.DIAMOND, new Item.Settings()
-                    .attributeModifiers(ModBattleaxeItem.createAttributeModifiers(
-                            ToolMaterials.DIAMOND, 5, -3.0f))
-                    .fireproof()));
+            new ModBattleaxeItem(ToolMaterial.DIAMOND, 5, -3.0f,
+                    new Item.Settings()));
     public static final Item NETHERITE_BATTLEAXE = registerItem("netherite_battleaxe",
-            new ModBattleaxeItem(ToolMaterials.NETHERITE, new Item.Settings()
-                    .attributeModifiers(ModBattleaxeItem.createAttributeModifiers(
-                            ToolMaterials.NETHERITE, 5, -3.0f))));
+            new ModBattleaxeItem(ToolMaterial.NETHERITE, 5, -3.0f,
+                    new Item.Settings()
+                            .fireproof()));
     public static final Item COBALT_STEEL_BATTLEAXE = registerItem("cobalt_steel_battleaxe",
             new ModCobaltSteelBattleaxeItem(ModToolMaterials.COBALT_STEEL,
                     5, -2.7f)); //Faster, Netherite = 5.0f, -3.0f
@@ -163,13 +160,11 @@ public class ModItems {
 
     //region Hoes
     public static final Item BRONZE_HOE = registerItem("bronze_hoe",
-            new HoeItem(ModToolMaterials.BRONZE, new Item.Settings()
-                    .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ModToolMaterials.BRONZE, -2.0f, -1.0f))));
+            new HoeItem(ModToolMaterials.BRONZE, -2.0f, -1.0f,
+                    new Item.Settings()));
     public static final Item GILDED_BRONZE_HOE = registerItem("gilded_bronze_hoe",
-            new HoeItem(ModToolMaterials.GILDED_BRONZE, new Item.Settings()
-                    .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ModToolMaterials.GILDED_BRONZE, -2.0f, -0.0f))));
+            new HoeItem(ModToolMaterials.GILDED_BRONZE, -2.0f, -0.0f,
+                    new Item.Settings()));
     public static final Item COBALT_STEEL_HOE = registerItem("cobalt_steel_hoe",
             new ModCobaltSteelHoeItem(ModToolMaterials.COBALT_STEEL,
                     -2, 0.0f)); //Very fast, Netherite = -4, 0.0f
@@ -183,13 +178,11 @@ public class ModItems {
 
     //region Paxels
     public static final Item DIAMOND_PAXEL = registerItem("diamond_paxel",
-            new ModPaxelItem(ToolMaterials.DIAMOND, new Item.Settings()
-                    .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ToolMaterials.DIAMOND, 2.0f, -2.9f))));
+            new ModPaxelItem(ToolMaterial.DIAMOND, 2.0f, -2.9f,
+                    new Item.Settings()));
     public static final Item NETHERITE_PAXEL = registerItem("netherite_paxel",
-            new ModPaxelItem(ToolMaterials.NETHERITE, new Item.Settings()
-                    .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ToolMaterials.NETHERITE, 2.0f, -2.9f)))); //Rough average between Axe, Pickaxe, and Shovel stats
+            new ModPaxelItem(ToolMaterial.NETHERITE, 2.0f, -2.9f,
+                    new Item.Settings().fireproof())); //Rough average between Axe, Pickaxe, and Shovel stats
     public static final Item COBALT_STEEL_PAXEL = registerItem("cobalt_steel_paxel",
             new ModCobaltSteelPaxelItem(ModToolMaterials.COBALT_STEEL,
                     2.0f, -2.6f)); //Faster, Netherite = 2.0f, -2.9f
@@ -203,13 +196,11 @@ public class ModItems {
 
     //region Pickaxes
     public static final Item BRONZE_PICKAXE = registerItem("bronze_pickaxe",
-            new PickaxeItem(ModToolMaterials.BRONZE, new Item.Settings()
-                    .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ModToolMaterials.BRONZE, 1.0f, -2.8f))));
+            new PickaxeItem(ModToolMaterials.BRONZE, 1.0f, -2.8f,
+                    new Item.Settings()));
     public static final Item GILDED_BRONZE_PICKAXE = registerItem("gilded_bronze_pickaxe",
-            new PickaxeItem(ModToolMaterials.GILDED_BRONZE, new Item.Settings()
-                    .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ModToolMaterials.GILDED_BRONZE, 1.0f, -2.6f))));
+            new PickaxeItem(ModToolMaterials.GILDED_BRONZE, 1.0f, -2.6f,
+                    new Item.Settings()));
     public static final Item COBALT_STEEL_PICKAXE = registerItem("cobalt_steel_pickaxe",
             new ModCobaltSteelPickaxeItem(ModToolMaterials.COBALT_STEEL,
                     1, -2.5f)); //Slower, Netherite = 1, -2.8f
@@ -223,13 +214,11 @@ public class ModItems {
 
     //region Shovel
     public static final Item BRONZE_SHOVEL = registerItem("bronze_shovel",
-            new ShovelItem(ModToolMaterials.BRONZE, new Item.Settings()
-                    .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ModToolMaterials.BRONZE, 1.5f, -3.0f))));
+            new ShovelItem(ModToolMaterials.BRONZE, 1.5f, -3.0f,
+                    new Item.Settings()));
     public static final Item GILDED_BRONZE_SHOVEL = registerItem("gilded_bronze_shovel",
-            new ShovelItem(ModToolMaterials.GILDED_BRONZE, new Item.Settings()
-                    .attributeModifiers(MiningToolItem.createAttributeModifiers(
-                            ModToolMaterials.GILDED_BRONZE, 1.5f, -2.8f))));
+            new ShovelItem(ModToolMaterials.GILDED_BRONZE, 1.5f, -2.8f,
+                    new Item.Settings()));
     public static final Item COBALT_STEEL_SHOVEL = registerItem("cobalt_steel_shovel",
             new ModCobaltSteelShovelItem(ModToolMaterials.COBALT_STEEL,
                     1.5f, -2.7f)); //Very fast, Netherite = 1.5f, -3.0f
@@ -243,13 +232,11 @@ public class ModItems {
 
     //region Sword
     public static final Item BRONZE_SWORD = registerItem("bronze_sword",
-            new SwordItem(ModToolMaterials.BRONZE, new Item.Settings()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(
-                            ModToolMaterials.BRONZE, 3, -2.4f))));
+            new SwordItem(ModToolMaterials.BRONZE, 3, -2.4f,
+                    new Item.Settings()));
     public static final Item GILDED_BRONZE_SWORD = registerItem("gilded_bronze_sword",
-            new SwordItem(ModToolMaterials.GILDED_BRONZE, new Item.Settings()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(
-                            ModToolMaterials.GILDED_BRONZE, 3, -2.2f))));
+            new SwordItem(ModToolMaterials.GILDED_BRONZE, 3, -2.2f,
+                    new Item.Settings()));
     public static final Item COBALT_STEEL_SWORD = registerItem("cobalt_steel_sword",
             new ModCobaltSteelSwordItem(ModToolMaterials.COBALT_STEEL,
                     3, -2.0f)); //Very fast, Netherite = 3, -2.4f
@@ -263,77 +250,77 @@ public class ModItems {
 
     //region Bronze armor
     public static final Item BRONZE_HELMET = registerItem("bronze_helmet",
-            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
+            new ArmorItem(ModArmorMaterials.BRONZE, EquipmentType.HELMET,
+                    new Item.Settings()));  //15 durability multiplier, same as Iron
     public static final Item BRONZE_CHESTPLATE = registerItem("bronze_chestplate",
-            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.CHESTPLATE, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(15))));
+            new ArmorItem(ModArmorMaterials.BRONZE, EquipmentType.CHESTPLATE,
+                    new Item.Settings()));
     public static final Item BRONZE_LEGGINGS = registerItem("bronze_leggings",
-            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.LEGGINGS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15))));
+            new ArmorItem(ModArmorMaterials.BRONZE, EquipmentType.LEGGINGS,
+                    new Item.Settings()));
     public static final Item BRONZE_BOOTS = registerItem("bronze_boots",
-            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(15))));
+            new ArmorItem(ModArmorMaterials.BRONZE, EquipmentType.BOOTS,
+                    new Item.Settings()));
     //endregion
 
     //region Gilded Bronze armor
     public static final Item GILDED_BRONZE_HELMET = registerItem("gilded_bronze_helmet",
-            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, ArmorItem.Type.HELMET, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(23))));  //23
+            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, EquipmentType.HELMET,
+                    new Item.Settings()));  //23 durability multiplier
     public static final Item GILDED_BRONZE_CHESTPLATE = registerItem("gilded_bronze_chestplate",
-            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, ArmorItem.Type.CHESTPLATE,  new Item.Settings()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(23))));
+            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, EquipmentType.CHESTPLATE,
+                    new Item.Settings()));
     public static final Item GILDED_BRONZE_LEGGINGS = registerItem("gilded_bronze_leggings",
-            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, ArmorItem.Type.LEGGINGS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(23))));
+            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, EquipmentType.LEGGINGS,
+                    new Item.Settings()));
     public static final Item GILDED_BRONZE_BOOTS = registerItem("gilded_bronze_boots",
-            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, ArmorItem.Type.BOOTS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(23))));
+            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, EquipmentType.BOOTS,
+                    new Item.Settings()));
     //endregion
 
     //region Cobalt-Steel armor
     public static final Item COBALT_STEEL_HELMET = registerItem("cobalt_steel_helmet",
-            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, ArmorItem.Type.HELMET, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(37))));  //37
+            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, EquipmentType.HELMET,
+                    new Item.Settings()));  //37 durability multiplier
     public static final Item COBALT_STEEL_CHESTPLATE = registerItem("cobalt_steel_chestplate",
-            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(37))));
+            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, EquipmentType.CHESTPLATE,
+                    new Item.Settings()));
     public static final Item COBALT_STEEL_LEGGINGS = registerItem("cobalt_steel_leggings",
-            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, ArmorItem.Type.LEGGINGS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(37))));
+            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, EquipmentType.LEGGINGS,
+                    new Item.Settings()));
     public static final Item COBALT_STEEL_BOOTS = registerItem("cobalt_steel_boots",
-            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, ArmorItem.Type.BOOTS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(37))));
+            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, EquipmentType.BOOTS,
+                    new Item.Settings()));
     //endregion
 
     //region Infused Gemstone armor
     public static final Item INFUSED_GEMSTONE_HELMET = registerItem("infused_gemstone_helmet",
-            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, ArmorItem.Type.HELMET, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(37))));
+            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.HELMET,
+                    new Item.Settings()));  //37 durability multiplier
     public static final Item INFUSED_GEMSTONE_CHESTPLATE = registerItem("infused_gemstone_chestplate",
-            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, ArmorItem.Type.CHESTPLATE, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(37))));
+            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.CHESTPLATE,
+                    new Item.Settings()));
     public static final Item INFUSED_GEMSTONE_LEGGINGS = registerItem("infused_gemstone_leggings",
-            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, ArmorItem.Type.LEGGINGS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(37))));
+            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.LEGGINGS,
+                    new Item.Settings()));
     public static final Item INFUSED_GEMSTONE_BOOTS = registerItem("infused_gemstone_boots",
-            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, ArmorItem.Type.BOOTS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(37))));
+            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.BOOTS,
+                    new Item.Settings()));
     //endregion
 
     //region Infused Gemstone armor
     public static final Item TUNGSTEN_CARBIDE_HELMET = registerItem("tungsten_carbide_helmet",
-            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, ArmorItem.Type.HELMET, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(41))));  //41
+            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.HELMET,
+                    new Item.Settings()));  //41 durability multiplier
     public static final Item TUNGSTEN_CARBIDE_CHESTPLATE = registerItem("tungsten_carbide_chestplate",
-            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, ArmorItem.Type.CHESTPLATE, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(41))));
+            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.CHESTPLATE,
+                    new Item.Settings()));
     public static final Item TUNGSTEN_CARBIDE_LEGGINGS = registerItem("tungsten_carbide_leggings",
-            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, ArmorItem.Type.LEGGINGS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(41))));
+            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.LEGGINGS,
+                    new Item.Settings()));
     public static final Item TUNGSTEN_CARBIDE_BOOTS = registerItem("tungsten_carbide_boots",
-            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, ArmorItem.Type.BOOTS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(41))));
+            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.BOOTS,
+                    new Item.Settings()));
     //endregion
 
 
